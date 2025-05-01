@@ -54,20 +54,24 @@
                                        <td>{{ student.parent.present_address }}</td>
                                        <td class="text-right">
                                           <div class="actions">
-                                             <a href="edit-student.html" class="btn btn-sm bg-success-light mr-2">
+                                             {% comment %} <a href="edit-student.html" class="btn btn-sm bg-success-light mr-2">
                                                  <i class="fas fa-pen"></i>
                                              </a>
 
                                              <a href="#" class="btn btn-sm bg-danger-light mr-2">
                                                 <i class="fas fa-trash"></i>
+                                             </a> {% endcomment %}
+                                             <a href="{% url 'edit_student' student.slug %}" class="btn btn-sm bg-success-light mr-2">
+                                                <i class="fas fa-pen"></i>
                                              </a>
 
-                                             {% comment %} <form action="{% url 'delete_student' student.slug %}" method="POST" style="display:inline;">
+                                             <form action="{% url 'delete_student' student.slug %}" method="POST" style="display:inline;">
                                                  {% csrf_token %}
                                                  <button type="submit" class="btn btn-sm bg-danger-light" onclick="return confirm('Are you sure you want to delete this student?');">
                                                      <i class="fas fa-trash"></i>
                                                  </button>
-                                             </form> {% endcomment %}
+                                             </form> 
+
                                          </div>
                                        </td>
                                     </tr>
@@ -81,7 +85,7 @@
                </div>
             </div>
             <footer>
-               <p>Copyright © 2020 Dreamguys.</p>
+               <p>Copyright © 2025 কোডিং পাঠশালা .</p>
             </footer>
          </div>
       </div>
