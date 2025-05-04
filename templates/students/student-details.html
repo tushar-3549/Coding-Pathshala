@@ -24,12 +24,20 @@
 <div class="about-info">
 <h4>About Me</h4>
 <div class="media mt-3">
-<img src="{{student.student_image.url}}" class="mr-3" alt="...">
+{% comment %} <img src="{{student.student_image.url}}" class="mr-3" alt="..."> {% endcomment %}
+
+{% if student.student_image %}
+    <img src="{{ student.student_image.url }}" alt="Student Image">
+{% else %}
+    <img src="{% static 'assets/img/logo.png' %}" alt="No Image">
+{% endif %}
+
+
 <div class="media-body">
 <ul>
 <li>
 <span class="title-span">Full Name : </span>
-<span class="info-span">{{ student.first_name}}</span>
+<span class="info-span">{{ student.first_name}} {{student.last_name}}</span>
 </li>
 <li>
 <span class="title-span">Department : </span>

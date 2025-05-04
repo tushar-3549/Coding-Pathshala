@@ -34,7 +34,7 @@ class Student(models.Model):
     mobile_number = models.CharField(max_length=15)
     admission_number = models.CharField(max_length=15)
     section = models.CharField(max_length=15)
-    student_image = models.ImageField(upload_to='student/', blank=True)
+    student_image = models.ImageField(upload_to='student/', blank=True, null=True)
     parent = models.OneToOneField('Parent', on_delete=models.CASCADE)
     slug = models.SlugField(max_length=255, unique=True, blank=True)
 
