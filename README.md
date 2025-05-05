@@ -45,11 +45,11 @@ A powerful **School Management System** built using the Django web framework. It
 
 5. Open your browser and go to `http://127.0.0.1:8000/`
 
-🙏 ### Acknowledgement
+🙏 *Acknowledgement*
 
 - The UI templates used in this project were collected something from free open-source resources and customized for project needs.
 
-🔮 ### Future Plans
+🔮 ***Future Plans***
   🧑‍🎓 Add student result and grade management system
   
   🏛️ Add department-wise filtering and reporting
