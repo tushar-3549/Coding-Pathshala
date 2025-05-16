@@ -61,6 +61,10 @@ A powerful **School Management System** built using the Django web framework. It
   ☁️ Deploy the project on cloud
 
 ### 📸 Screenshots
+![image](https://github.com/user-attachments/assets/4c248763-d25b-4f68-b892-a6dce1f08bb2)
+
+![image](https://github.com/user-attachments/assets/7df388dd-fd2e-441c-b7d0-0f29492ac096)
+
 ![image](https://github.com/user-attachments/assets/8d0b7fd3-4f76-472e-a353-65beab4e8ef5)
 
 ![image](https://github.com/user-attachments/assets/8033c769-2392-454e-9d59-105e7c8ea97e)
