@@ -8,6 +8,7 @@ A powerful **School Management System** built using the Django web framework. It
 - 📋 Student management with:
   
   ➤ Add, edit, delete, and view student details
+  
   ➤ Student list fetching from the database
   
 - 👨‍🏫 Teacher management module
@@ -15,8 +16,11 @@ A powerful **School Management System** built using the Django web framework. It
 - 🔐 Authentication system
   
   ➤ User registration
+  
   ➤ Login & logout
+  
   ➤ Forgot password feature
+  
 - 📂 Organized project structure following Django best practices
 
 ### 🛠️ Tech Stack
