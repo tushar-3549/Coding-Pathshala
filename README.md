@@ -19,7 +19,7 @@ A powerful **School Management System** built using the Django web framework. It
   
   ➤ Login & logout
   
-  ➤ Forgot password feature
+  ➤ Forgot password and notification feature
   
 - 📂 Organized project structure following Django best practices
 
@@ -72,6 +72,8 @@ A powerful **School Management System** built using the Django web framework. It
 
 ### 📸 Screenshots
 ![image](https://github.com/user-attachments/assets/4c248763-d25b-4f68-b892-a6dce1f08bb2)
+
+![image](https://github.com/user-attachments/assets/a906a309-4c71-4f8c-a12f-f63c3735b583)
 
 ![image](https://github.com/user-attachments/assets/7df388dd-fd2e-441c-b7d0-0f29492ac096)
 
