@@ -46,7 +46,7 @@ def add_student(request):
                 permanent_address=permanent_address,
             )
             # Save student data 
-            Student.objects.create(
+            student = Student.objects.create(
                 first_name=first_name,
                 last_name=last_name,
                 student_id=student_id,
@@ -61,6 +61,8 @@ def add_student(request):
                 student_image=student_image,
                 parent=parent
             )
+            create_notification(request.user, f"Added Student: {student.first_name} {student.last_name}")
+
             messages.success(request, "Student added successfully...")
             # return render(request, "student_list")
 
@@ -68,8 +70,10 @@ def add_student(request):
 
 def student_list(request):
     student_list = Student.objects.select_related('parent').all()
+    unread_notification = request.user.notification_set.filter(is_read=False)
     context = {
-         'student_list': student_list
+         'student_list': student_list,
+         'unread_notification': unread_notification
     }
 
     return render(request, "students/students.html", context)
@@ -119,6 +123,8 @@ def edit_student(request, slug):
         student.section = section
         student.student_image = student_image
         student.save()
+
+        create_notification(request.user, f"Added Student: {student.first_name} {student.last_name}")
         
         return redirect("student_list")
 
@@ -138,6 +144,9 @@ def delete_student(request,slug):
         student = get_object_or_404(Student, slug=slug)
         student_name = f"{student.first_name} {student.last_name}"
         student.delete()
+
+        create_notification(request.user, f"Deleted student: {student_name}")
+        
         return redirect('student_list')
     return HttpResponseForbidden()
 

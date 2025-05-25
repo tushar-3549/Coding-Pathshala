@@ -44,8 +44,8 @@
             <ul class="nav user-menu">
                <li class="nav-item dropdown noti-dropdown">
                   <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                   {% if unread_notification_count > 0 %}
-                  <i class="far fa-bell"></i> <span class="badge badge-pill">{{unread_notification_count}}</span>
+                  {% if unread_notification_count > 0 %}
+                    <i class="far fa-bell"></i> <span class="badge badge-pill">{{unread_notification_count}}</span> 
                   {% endif %}
                   </a>
                   <div class="dropdown-menu notifications">
@@ -80,7 +80,7 @@
                </li>
                <li class="nav-item dropdown has-arrow">
                   <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                  <span class="user-img"><img class="rounded-circle" src="assets/img/profiles/avatar-01.jpg" width="31" alt="Tushar Ahmed"></span>
+                  <span class="user-img"><img class="rounded-circle" src="assets/img/profiles/avatar-01.jpg" width="31" alt="{{user}}"></span>
                   </a>
                   <div class="dropdown-menu">
                      <div class="user-header">
@@ -267,6 +267,71 @@
 
  
 
+      <script type="text/javascript">
+         document.addEventListener('DOMContentLoaded', function() {
+             // Select the notification dropdown element
+             const notiDropdown = document.querySelector('.noti-dropdown');
+             const clearAllBtn = document.querySelector('.clear-noti');
+     
+             if (notiDropdown) {
+                 // Add a click event listener to the notification dropdown
+                 notiDropdown.addEventListener('click', function() {
+                     const url = "{% url 'mark_notification_as_read' %}";
+     
+                     // Use the Fetch API to send a POST request to mark notifications as read
+                     fetch(url, {
+                         method: 'POST',
+                         headers: {
+                             'X-CSRFToken': '{{ csrf_token }}',
+                             'Content-Type': 'application/x-www-form-urlencoded',
+                         }
+                     })
+                     .then(response => response.json())  // Parse the JSON response
+                     .then(data => {
+                         if (data.status === 'success') {
+                             // Remove the badge if notifications are successfully marked as read
+                             const badge = document.querySelector('.badge');
+                             if (badge) {
+                                 badge.remove();
+                             }
+                         }
+                     })
+                     .catch(error => {
+                         console.error('Error:', error);  // Log any errors
+                     });
+                 });
+             }
+     
+             if (clearAllBtn) {
+                 // Add a click event listener to the "Clear All" button
+                 clearAllBtn.addEventListener('click', function() {
+                     const clearUrl = "{% url 'clear_all_notification' %}";  // Ensure this URL points to the correct view
+     
+                     // Use Fetch to send a POST request to clear all notifications
+                     fetch(clearUrl, {
+                         method: 'POST',
+                         headers: {
+                             'X-CSRFToken': '{{ csrf_token }}',
+                             'Content-Type': 'application/x-www-form-urlencoded',
+                         }
+                     })
+                     .then(response => response.json())  // Parse the JSON response
+                     .then(data => {
+                         if (data.status === 'success') {
+                             // Clear all notifications from the dropdown
+                             const notificationList = document.querySelector('.notification-list');
+                             if (notificationList) {
+                                 notificationList.innerHTML = '<li>No new notifications</li>';  // Optionally show a "No new notifications" message
+                             }
+                         }
+                     })
+                     .catch(error => {
+                         console.error('Error:', error);  // Log any errors
+                     });
+                 });
+             }
+         });
+     </script>
       
       
   </body>
