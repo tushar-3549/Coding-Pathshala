@@ -60,6 +60,7 @@ A powerful **School Management System** built using the Django web framework. It
 - The UI templates used in this project were collected something from free open-source resources and customized for project needs.
 
 🔮 ***Future Plans***
+
   🧑‍🎓 Add student result and grade management system
   
   🏛️ Add department-wise filtering and reporting
