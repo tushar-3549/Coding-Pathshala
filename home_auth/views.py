@@ -141,3 +141,7 @@ def logout_view(request):
     logout(request)
     messages.success(request, 'You have been logged out.')
     return redirect('index')
+
+
+def profile_view(request):
+    return render(request, 'authentication/profile.html')
